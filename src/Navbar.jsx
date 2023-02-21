@@ -1,33 +1,24 @@
-import { useState } from 'react';
+import { useState } from "react";
+
+import { AppBar, IconButton, Toolbar, TextField } from "@mui/material";
+import { Search, Shuffle } from "@mui/icons-material";
 
 function Navbar() {
-	const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
 
-	return (
-		<div className="search-nav">
-			<form action="submit">
-				<label htmlFor="search-bar">
-					<h1>Spin</h1>
-					<img
-						className="search-nav-logo"
-						src="/lottery.png"
-						alt=""
-					/>
-				</label>
-				<input
-					id="search-bar"
-					value={search}
-					onChange={(e) => {
-						setSearch(e.target.value);
-					}}
-					className="search-bar"
-					type="text"
-					placeholder="Movies"
-				/>
-				<button className="search-button">Search</button>
-			</form>
-		</div>
-	);
+  return (
+    <AppBar position="static">
+      <Toolbar>
+        <IconButton size="large" edge="start" aria-label="random">
+          <Shuffle />
+        </IconButton>
+        <TextField id="search-box" variant="filled" label="Search"></TextField>
+        <IconButton size="large" aria-label="random">
+          <Search />
+        </IconButton>
+      </Toolbar>
+    </AppBar>
+  );
 }
 
 export default Navbar;
